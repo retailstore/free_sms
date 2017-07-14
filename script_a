@@ -1,0 +1,110 @@
+users = [
+	{
+		username: "dhannu",
+		password: "12345",
+		number: "1234567890"
+	},
+	{
+		username: "kiki",
+		password: "12344",
+		number: "1234567899"
+	},
+	{
+		username: "reena",
+		password: "11234",
+		number: "1123456789"
+	}
+]
+
+$('#login').click(function(){
+	u_name = $('#username').val();
+	pwd = $('#password').val();
+	flag = false;
+	for (user in users) {
+		if(u_name=="") {
+			alert("Enter valid details");
+			flag = true;
+			break;
+		}
+		else if(u_name==users[user].username) {
+			flag = true;
+			if(pwd==users[user].password) {
+				window.location.href = "partials/success.html"
+			}
+			else {
+				alert("Incorrect password");
+			}
+		}
+	}
+	if (flag==false){
+		alert("User not registered")
+	}
+})
+
+
+$('#register').click(function(){
+	name = $('#name').val();
+	number = $('#phone').val();
+	pwd = $('#c_password').val()
+	
+	for (user in users) {
+		if(number==users[user].number) {
+			flag="false"
+			alert("Already registered");
+			break;
+		}
+		else if (name==users[user].username) {
+			flag="false"
+			alert("Username already taken");
+			break;
+		}
+		else {
+			flag = true;
+		}
+	}
+	
+	if (flag==true){
+		alert("Successfully registered. Login to continue");
+		user = {
+			username: name,
+			password: pwd,
+			number: number			
+		}
+		users.push(user);
+		$('input').val("");
+		
+		reverse();
+	}
+	
+})
+
+
+
+$('#reset').click(function() {
+	$('input').val("")
+})
+
+$('#send').click(function() {
+	$("#popup").toggle();
+})
+
+$('#add').click(function() {
+	$('#numbers').append('<input class="value" type="number" class="r_number"><br>')
+})
+
+$('#new-user').click(function() {
+	reverse();
+})
+
+$('#back').click(function() {
+	reverse();
+})
+
+$('#close').click(function(){
+	$('#popup').toggle();
+})
+
+reverse = function() {
+	$('#register-form').toggle();
+	$('#login-form').toggle();	
+}
