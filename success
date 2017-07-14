@@ -1,0 +1,39 @@
+<html>
+	<head>
+		<title>Welcome</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+	</head>
+
+	<body>
+		<center><header>
+			<h1 class="text-white">SMS Application</h1>
+		</header></center>
+		<br>
+		<div class="flex-container">
+			<div class="flex-item">
+				<a id="logout" href="../index.html">Logout</a>
+				<center>
+					<label class="tag">Enter number</label>
+					<div id="numbers"><input class="value" type="number" class="r_number"></div><br>
+					<button id="add" class="btn-2">Add number</button><br><br>
+					<label class="tag">Enter message to send</label>
+					<textarea class="sms" id="message"></textarea><br><br><br>
+					<button id="send" class="btn-1">Send SMS</button>
+				</center>
+			</div>
+		</div>
+		<br><br><br>
+		<center><footer class="text-white">Have a good day</footer></center>
+		
+		<center id="popup">
+			<br><br>
+			SMS is sent successfully
+			<br><br>
+			<button id="close" class="btn-1">OK</button>
+		</center>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="../js/script.js"></script>
+	</body>
+</html>
